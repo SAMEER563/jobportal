@@ -2,6 +2,7 @@ import {Application} from '../models/application.model.js';
 import { Job } from '../models/job.model.js';
 
 
+//apply for a job
 export const applyJob = async (req, res) => {
     try {
         const userId = req.id;
@@ -50,6 +51,9 @@ export const applyJob = async (req, res) => {
     }
 };
 
+
+
+// get applied jobs
 export const getAppliedJobs  = async (req, res) => {
     try {
         const userId = req.id;
@@ -77,6 +81,8 @@ export const getAppliedJobs  = async (req, res) => {
         
     }
 };
+
+
 
 // get applicants
 export const getApplicants = async (req, res) => {
@@ -106,6 +112,8 @@ export const getApplicants = async (req, res) => {
         
     }
 }; 
+
+
 
 // update application status
 export const updateApplicationStatus = async (req, res) => {
