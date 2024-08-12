@@ -1,10 +1,11 @@
-import e from "express";
+import express from "express";
 import mongoose from "mongoose";
 
 const companySchema = new mongoose.Schema({
     name: {
         type: String,
-        require: true
+        require: true,
+        unique: true
     },
     website: {
         type: String,
