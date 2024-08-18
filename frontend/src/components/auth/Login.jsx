@@ -82,7 +82,7 @@ const Login = () => {
           </div>
           <Button
             type="submit"
-            className="w-full bg-purple-500 hover:bg-purple-700 text-white p-2 rounded-md"
+            className="w-full bg-purple-500 hover:bg-purple-700 text-white p-2 rounded-full"
           >
             Login
           </Button>
