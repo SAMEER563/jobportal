@@ -41,7 +41,7 @@ const Login = () => {
               onChange={changeEventHandler}
               name="fullname"
               type="text"
-              placeholder=" John Doe"
+              placeholder="John Doe"
             />
           </div>
           <div className="my-2">
