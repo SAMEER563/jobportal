@@ -1,17 +1,23 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import Navbar from "../shared/Navbar";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { RadioGroup } from "../ui/radio-group";
 import { Button } from "../ui/button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { toast } from "sonner";
+import { USER_API_ENDPOINT } from "@/utils/constant";
 
 const Login = () => {
   const [input, setInput] = useState({
-    fullname: "",
+    
     email: "",
+    password: "", 
     role: "",
   });
+
+  const navigate = useNavigate();1
 
   const changeEventHandler = (e) => {
     setInput({
@@ -20,9 +26,26 @@ const Login = () => {
     });
   };
 
-  const submitHandler = (e) => {
+  
+  const submitHandler = async(e) => {
     e.preventDefault();
-    console.log(input);
+   try {
+    const res = await axios.post(`${USER_API_ENDPOINT}/login`, input, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      withCredentials: true,
+
+    });
+   if(res.data.success){
+    navigate("/");
+     toast.success(res.data.message);
+
+    }
+   } catch (error) {
+    console.log(error);
+    toast.error(error.response.data.message);
+   }
   };
 
   return (
@@ -35,16 +58,6 @@ const Login = () => {
         >
           <h1 className="font-bold text-xl mb-5">Login</h1>
           <div className="my-2">
-            <Label htmlFor="name">FullName</Label>
-            <Input
-              value={input.fullname}
-              onChange={changeEventHandler}
-              name="fullname"
-              type="text"
-              placeholder="John Doe"
-            />
-          </div>
-          <div className="my-2">
             <Label htmlFor="name">Email</Label>
             <Input
               type="email"
@@ -52,6 +65,16 @@ const Login = () => {
               onChange={changeEventHandler}
               name="email"
               placeholder="john@gmail.com "
+            />
+          </div>
+          <div className="my-2">
+            <Label htmlFor="name">Password</Label>
+            <Input
+              value={input.password}
+              onChange={changeEventHandler}
+              name="password"
+              type="password"
+              placeholder="Enter your password"
             />
           </div>
           <div className="flex items-center justify-between">
