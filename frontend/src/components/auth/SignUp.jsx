@@ -51,15 +51,13 @@ const navigate = useNavigate();
         "Content-Type": "multipart/form-data",
       },
       withCredentials: true,
-
     });
+
    if(res.data.success){
     navigate("/login");
      toast.success(res.data.message);
-
     }
    } catch (error) {
-   
     toast.error(error.response.data.message);
    }
   };
