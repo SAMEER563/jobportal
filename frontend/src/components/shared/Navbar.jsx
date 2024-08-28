@@ -12,14 +12,15 @@ const Navbar = () => {
       <div className="flex  items-center justify-between mx-auto max-w-7xl h-16">
         <div>
           <h1 className="text-2xl font-bold">
-            Job <span className="text-purple-500 ">Portal</span>
+           <Link to='/'>
+           Job <span className="text-purple-500 ">Portal</span></Link>
           </h1>
         </div>
         <div className="flex items-center gap-12 ">
           <ul className="flex items-center font-bold gap-6">
-            <li>Home</li>
-            <li>Jobs</li>
-            <li>Browse</li>
+            <Link to='/'>Home</Link>
+            <Link to='/jobs'>Jobs</Link>
+            <Link to='/browse'>Browse</Link>
           </ul>
 
           {!user ? (
