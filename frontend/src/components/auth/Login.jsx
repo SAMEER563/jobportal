@@ -11,6 +11,7 @@ import { USER_API_ENDPOINT } from "@/utils/constant";
 import { setLoading } from "@/redux/authSlice";
 import { Loader2 } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
+import Footer from "../shared/Footer";
 
 const Login = () => {
   const [input, setInput] = useState({
@@ -131,6 +132,9 @@ const Login = () => {
             </Link>{" "}
           </span>
         </form>
+      </div>
+      <div className="mb-2 max-h-full">
+      <Footer />
       </div>
     </div>
   );

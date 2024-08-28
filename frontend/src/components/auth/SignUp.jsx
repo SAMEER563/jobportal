@@ -11,6 +11,7 @@ import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading } from "@/redux/authSlice";
+import Footer from "../shared/Footer";
 
 const SignUp =  () => {
   const [input, setInput] = useState({
@@ -173,6 +174,7 @@ const navigate = useNavigate();
           </span>
         </form>
       </div>
+      <Footer />
     </div>
   );
 };
