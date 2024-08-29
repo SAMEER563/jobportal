@@ -13,7 +13,7 @@ const Jobs = () => {
         {/* filter page */}
         <div className='max-w-7xl mx-auto mt-5'>
             <div className='flex gap-5'>
-                <div className='w-20'>
+                <div className='w-20%'>
               <FilterCard />
                 </div>
                  {/* Job Card */}
