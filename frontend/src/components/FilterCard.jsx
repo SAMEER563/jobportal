@@ -37,7 +37,9 @@ const FilterCard = () => {
                       </div>
                    )
                   }
-                    
+                   
+                  // changes here (added return statement
+
                   )
                 }
               </div>
