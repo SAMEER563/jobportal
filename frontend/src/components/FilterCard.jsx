@@ -38,8 +38,6 @@ const FilterCard = () => {
                    )
                   }
                    
-                  // changes here (added return statement
-
                   )
                 }
               </div>
