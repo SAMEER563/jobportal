@@ -37,7 +37,7 @@ const FilterCard = () => {
                       </div>
                    )
                   }
-                   
+                   // update some points
                   )
                 }
               </div>
