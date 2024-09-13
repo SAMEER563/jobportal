@@ -4,14 +4,20 @@ import { Avatar, AvatarImage } from "./ui/avatar";
 import { Button } from "./ui/button";
 import { Contact, Mail, Pen } from "lucide-react";
 import { Badge } from "./ui/badge";
+import { Label } from "./ui/label";
+import App from "@/App";
+import AppliedJobTable from "./AppliedJobTable";
 
 
 const skills = ["HTML", "CSS", "Nodejs", "React", "Javascript"]
+
+const isResume = true
+
 const Profile = () => {
   return (
     <div>
       <Navbar />
-      <div className="max-w-7xl mx-auto bg-white border border-gray-200 rounded-2xl my-5 p-8">
+      <div className="max-w-4xl mx-auto bg-white border border-gray-200 rounded-2xl my-5 p-8">
         <div className="flex justify-between ">
           <div className="flex items-center gap-4">
             <Avatar className="h-24 w-24">
@@ -48,7 +54,18 @@ const Profile = () => {
             }
            </div>
         </div>
+        <div className="grid w-full max-w-sm items-center gap-1.5">
+          <Label className="text-md font-bold">Resume</Label>
+          {
+            isResume ? <a target="_blank" href='http://sameermaurya.netlify.app' className="text-blue-500 w-full hover:underline cursor-pointer">View</a> : <span>NA</span>
+          }
+        </div>
       </div>
+        <div className="max-w-4xl mx-auto bg-white rounded-2xl">
+          <h1 className="text-lg font-bold my-5">Applied Jobs</h1>
+          {/* Application Job Table */}
+         <AppliedJobTable />
+        </div>
     </div>
   );
 };
