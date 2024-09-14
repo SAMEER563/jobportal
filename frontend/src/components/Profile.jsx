@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "./shared/Navbar";
 import { Avatar, AvatarImage } from "./ui/avatar";
 import { Button } from "./ui/button";
@@ -7,6 +7,7 @@ import { Badge } from "./ui/badge";
 import { Label } from "./ui/label";
 import App from "@/App";
 import AppliedJobTable from "./AppliedJobTable";
+import { UpdateProfile } from "./UpdateProfile";
 
 
 const skills = ["HTML", "CSS", "Nodejs", "React", "Javascript"]
@@ -14,6 +15,7 @@ const skills = ["HTML", "CSS", "Nodejs", "React", "Javascript"]
 const isResume = true
 
 const Profile = () => {
+  const [open, setOpen] = useState(false);
   return (
     <div>
       <Navbar />
@@ -32,7 +34,7 @@ const Profile = () => {
               </p>
             </div>
           </div>
-          <Button className="text-right" variant="outline">
+          <Button onClick={() => setOpen(true)} className="text-right" variant="outline">
             <Pen />
           </Button>
         </div>
@@ -47,7 +49,7 @@ const Profile = () => {
           </div>
         </div>
         <div className="my-5">
-            <h1>Skills</h1>
+            <h1 className="font-bold ">Skills</h1>
            <div className="flex items-center gap-1">
            {
                 skills.length != 0 ? skills.map((item, index) => <Badge key={index}>{item}</Badge>) : <span>NA</span>
@@ -66,6 +68,7 @@ const Profile = () => {
           {/* Application Job Table */}
          <AppliedJobTable />
         </div>
+        <UpdateProfile open={open} setOpen={setOpen} />
     </div>
   );
 };
