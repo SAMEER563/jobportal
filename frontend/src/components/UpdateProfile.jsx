@@ -53,18 +53,19 @@ export const UpdateProfile = ({ open, setOpen }) => {
           formData.append("file", input.file);
         }
         try {
-          const res = await axios.post(`${USER_API_ENDPOINT}/profile/update`, formData, {
+          const res = await axios.put(`${USER_API_ENDPOINT}/profile/update`, formData, {
             headers: {
               "Content-Type": "multipart/form-data",
             },
             withCredentials: true,
           });
-          if (res.data.status === 200) {
+          if (res.data.status) {
             dispatch(setUser(res.data.user));
             toast.success("Profile Updated Successfully");
           }
         } catch (error) {
           console.log(error);
+          console.log('Error response:', error.response);
           toast.error(error.response.data.message);
         }
         setOpen(false);
