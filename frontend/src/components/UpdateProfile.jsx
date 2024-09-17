@@ -53,6 +53,7 @@ export const UpdateProfile = ({ open, setOpen }) => {
           formData.append("file", input.file);
         }
         try {
+          // not working
           const res = await axios.put(`${USER_API_ENDPOINT}/profile/update`, formData, {
             headers: {
               "Content-Type": "multipart/form-data",
